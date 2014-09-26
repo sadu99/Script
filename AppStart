@@ -2,7 +2,7 @@
 
 # Open app
 
- adb shell am start -n com.zynga.gswf/.ui.launch.GameshowMainActivity
+ adb shell am start -n com.zynga.gswf/.ui.launch.GameshowMainActivity 
 
  	#Checking if App Starts Properly
 

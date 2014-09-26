@@ -4,7 +4,7 @@
 
 # Going through FTUE 
 
-sleep 1
+sleep 1.5
 
 	#Checking if FTUE Starts Properly
 
@@ -51,11 +51,11 @@ sleep 1
 # Spinner Swipe
 
 adb shell input swipe 560 660 560 1600
-sleep 8
+sleep 6
 	
 	#Checking if FTUE_Spinner Works Properly
 
-		sleep 1
+		sleep 5
 		adb shell screencap -p | perl -pe 's/\x0D\x0A/\x0A/g' > ActualFtueBoard.bmp
 		convert ActualFtueBoard.bmp -crop 1080x1860+0+75 $img "ActualFtueBoard.bmp";
 		mv ActualFtueBoard.bmp ImageTests/ActualPics

@@ -13,7 +13,7 @@
 
 			if compare -metric MAE /Users/shashmani/Desktop/WTPScript/ImageTests/ActualPics/ActualLogin.bmp /Users/shashmani/Desktop/WTPScript/ImageTests/TestImages/LoginPage.bmp null; 
 				then
-						echo "Test 5: FTUE Log-in Page Opens Correctly." >> Result.txt
+						echo "Test 5: Log-in Page Opens Correctly." >> Result.txt
 					else
 						echo "Test 5: FAILED - Log-in Page did not open properly." >> Result.txt 
 			fi

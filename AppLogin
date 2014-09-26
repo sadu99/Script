@@ -1,0 +1,34 @@
+#!/bin/bash
+
+# Log-in Page
+
+#Checking if Log-in Page Displays Properly
+
+		sleep 1
+		adb shell screencap -p | perl -pe 's/\x0D\x0A/\x0A/g' > ActualLogin.bmp
+		convert ActualLogin.bmp -crop 1080x1860+0+75 $img "ActualLogin.bmp";
+		mv ActualLogin.bmp ImageTests/ActualPics
+
+			#Comparing Actual Screenshot to Stored FTUE_First_Screen Picture
+
+			if compare -metric MAE /Users/shashmani/Desktop/WTPScript/ImageTests/ActualPics/ActualLogin.bmp /Users/shashmani/Desktop/WTPScript/ImageTests/TestImages/LoginPage.bmp null; 
+				then
+						echo "Test 5: FTUE Log-in Page Opens Correctly." >> Result.txt
+					else
+						echo "Test 5: FAILED - Log-in Page did not open properly." >> Result.txt 
+			fi
+
+
+
+# By Email
+sleep 1
+adb shell input tap 500 1200
+sleep 1
+adb shell input text shtest7@zto.ca
+sleep 2
+adb shell input tap 835 580
+sleep 2
+adb shell input text Pass@999
+sleep 2
+adb shell input tap 765 580 
+sleep 10 

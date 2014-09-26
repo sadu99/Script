@@ -1,0 +1,95 @@
+#!/bin/bash
+
+# Open app
+
+# Going through FTUE 
+
+sleep 1
+
+	#Checking if FTUE Starts Properly
+
+		sleep 1
+		adb shell screencap -p | perl -pe 's/\x0D\x0A/\x0A/g' > ActualFtueFirst.bmp
+		convert ActualFtueFirst.bmp -crop 1080x1860+0+75 $img "ActualFtueFirst.bmp";
+		mv ActualFtueFirst.bmp ImageTests/ActualPics
+
+			# Comparing Actual Screenshot to Stored FTUE_First_Screen Picture
+
+			if compare -metric MAE /Users/shashmani/Desktop/WTPScript/ImageTests/ActualPics/ActualFtueFirst.bmp /Users/shashmani/Desktop/WTPScript/ImageTests/TestImages/FtueFirstPage.bmp null; 
+				then
+						echo "Test 2: FTUE opened correctly." >> Result.txt
+					else
+						echo "Test 2: FAILED - FTUE did not open properly." >> Result.txt 
+			fi
+
+adb shell input tap 780 1765
+sleep 2
+
+# Opening Song and Artist and Tapping Spin
+	
+	#Checking if FTUE_Category_Page Opens Properly
+
+		sleep 1
+		adb shell screencap -p | perl -pe 's/\x0D\x0A/\x0A/g' > ActualFtueCategory.bmp
+		convert ActualFtueCategory.bmp -crop 1080x1860+0+75 $img "ActualFtueCategory.bmp";
+		mv ActualFtueCategory.bmp ImageTests/ActualPics
+
+			# Comparing Actual Screenshot to Stored FTUE_Category_Screen Picture
+
+			if compare -metric MAE /Users/shashmani/Desktop/WTPScript/ImageTests/ActualPics/ActualFtueCategory.bmp /Users/shashmani/Desktop/WTPScript/ImageTests/TestImages/FtueCategoryPage.bmp null; 
+				then
+						echo "Test 3: FTUE Category Page opened correctly." >> Result.txt
+					else
+						echo "Test 3: FAILED - FTUE Category Page did not open properly." >> Result.txt 
+			fi
+
+adb shell input tap 500 530 
+sleep 5
+adb shell input tap 560 1330
+sleep 1
+
+# Spinner Swipe
+
+adb shell input swipe 560 660 560 1600
+sleep 8
+	
+	#Checking if FTUE_Spinner Works Properly
+
+		sleep 1
+		adb shell screencap -p | perl -pe 's/\x0D\x0A/\x0A/g' > ActualFtueBoard.bmp
+		convert ActualFtueBoard.bmp -crop 1080x1860+0+75 $img "ActualFtueBoard.bmp";
+		mv ActualFtueBoard.bmp ImageTests/ActualPics
+
+			#Comparing Actual Screenshot to Stored FTUE_First_Screen Picture
+
+			if compare -metric MAE /Users/shashmani/Desktop/WTPScript/ImageTests/ActualPics/ActualFtueBoard.bmp /Users/shashmani/Desktop/WTPScript/ImageTests/TestImages/FtueBoardScreen.bmp null; 
+				then
+						echo "Test 4: FTUE spinner works properly and FTUE game board displays correctly." >> Result.txt
+					else
+						echo "Test 4: FAILED - FTUE spinner did not work properly." >> Result.txt 
+			fi
+
+
+# Finishing Word
+
+sleep 1
+adb shell input tap 120 1210
+sleep 1
+adb shell input tap 180 1340
+sleep 1
+adb shell input tap 380 1330
+sleep 1
+adb shell input tap 500 530 
+sleep 1
+adb shell input swipe 255 1670 845 1600
+sleep 1
+adb shell input tap 690 1370
+sleep 8
+adb shell input tap 805 1700
+sleep 8
+
+
+
+
+
+

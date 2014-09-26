@@ -1,0 +1,8 @@
+#!/bin/bash
+
+for img in *.bmp ;
+do convert -crop 1080x1860+0+75 $img "${img%.bmp}.bmp";
+mv ${img%.bmp}.bmp TestImages
+done
+
+

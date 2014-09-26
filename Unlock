@@ -1,0 +1,17 @@
+#!/bin/bash
+
+# Unlocking Phone
+
+adb shell input keyevent 3
+adb shell input keyevent KEYCODE_DPAD_DOWN
+adb shell input keyevent KEYCODE_ENTER
+adb shell input keyevent KEYCODE_DPAD_DOWN
+adb shell input keyevent KEYCODE_ENTER
+adb shell input keyevent KEYCODE_DPAD_DOWN
+adb shell input keyevent KEYCODE_ENTER
+adb shell input keyevent KEYCODE_DPAD_DOWN
+adb shell input keyevent KEYCODE_ENTER
+adb shell input keyevent KEYCODE_DPAD_RIGHT
+adb shell input keyevent KEYCODE_ENTER
+
+

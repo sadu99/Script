@@ -1,0 +1,28 @@
+#!/bin/bash
+
+# Open app
+
+ adb shell am start -n com.zynga.gswf/.ui.launch.GameshowMainActivity
+
+ 	#Checking if App Starts Properly
+
+		sleep 1
+		adb shell screencap -p | perl -pe 's/\x0D\x0A/\x0A/g' > ActualAppOpen.bmp
+		convert ActualAppOpen.bmp -crop 1080x1860+0+75 $img "ActualAppOpen.bmp";
+		mv ActualAppOpen.bmp ImageTests/ActualPics
+
+			# Comparing Actual Screenshot to Stored App_Open_Screen Picture
+
+			if compare -metric MAE /Users/shashmani/Desktop/WTPScript/ImageTests/ActualPics/ActualAppOpen.bmp /Users/shashmani/Desktop/WTPScript/ImageTests/TestImages/AppOpenPage.bmp null; 
+				then
+						echo "Test 1: The app successfully downloaded, installed and opened correctly." >> Result.txt
+					else
+						echo "Test 1: FAILED - The app did not open properly." >> Result.txt 
+			fi
+
+
+
+
+
+
+			

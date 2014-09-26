@@ -1,0 +1,9 @@
+#!/bin/bash
+
+# Remove current game versions
+
+adb uninstall com.zynga.gswf
+
+# Install new versions
+
+adb install What_s_the_Phrase_Free.apk

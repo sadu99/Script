@@ -1,0 +1,27 @@
+#!/bin/bash
+
+# Starting a new game ("Start a Game!" Button)
+
+sleep 1
+adb shell input tap 575 340
+
+		# Checking if New Game Screen Opens Properly (Following screenshot without coins and banner) 
+				sleep 1
+				adb shell screencap -p | perl -pe 's/\x0D\x0A/\x0A/g' > ActualNewGameScreen.bmp
+				convert ActualNewGameScreen.bmp -crop 1080x1560+0+75 $img "ActualNewGameScreen.bmp";
+				mv ActualNewGameScreen.bmp ImageTests/ActualPics
+
+					#Comparing Actual Screenshot to Stored New Game Screen Picture
+
+					if compare -metric MAE /Users/shashmani/Desktop/WTPScript/ImageTests/ActualPics/ActualNewGameScreen.bmp /Users/shashmani/Desktop/WTPScript/ImageTests/TestImages/NewGameScreen.bmp null; 
+						then
+								echo -e "\x1B[01;92m Test 10: New Game Screen Opens Correctly. \x1B[0m" 
+								echo "Test 10: New Game Screen Opens Correctly." >> Result.txt
+								say "Test 10 Passed!"
+							else
+								echo -e "\x1B[31m Test 10: FAILED - New Game Screen did not open properly. \x1B[0m"
+								echo "Test 10: FAILED - New Game Screen did not open properly." >> Result.txt 
+								say "Test 10 Failed!"
+					fi
+
+

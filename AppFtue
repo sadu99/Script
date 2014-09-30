@@ -17,9 +17,13 @@ sleep 1.5
 
 			if compare -metric MAE /Users/shashmani/Desktop/WTPScript/ImageTests/ActualPics/ActualFtueFirst.bmp /Users/shashmani/Desktop/WTPScript/ImageTests/TestImages/FtueFirstPage.bmp null; 
 				then
-						echo "Test 2: FTUE opened correctly." >> Result.txt
+						echo -e "\x1B[01;92m Test 2: FTUE opened correctly. \x1B[0m" 
+						echo "Test 2: FTUE opened correctly." >> Result.txt 
+						say "Test 2 Passed!"
 					else
+						echo -e "\x1B[31m Test 2: FAILED - FTUE did not open properly. \x1B[0m" 
 						echo "Test 2: FAILED - FTUE did not open properly." >> Result.txt 
+						say "Test 2 Failed!"
 			fi
 
 adb shell input tap 780 1765
@@ -38,9 +42,13 @@ sleep 2
 
 			if compare -metric MAE /Users/shashmani/Desktop/WTPScript/ImageTests/ActualPics/ActualFtueCategory.bmp /Users/shashmani/Desktop/WTPScript/ImageTests/TestImages/FtueCategoryPage.bmp null; 
 				then
-						echo "Test 3: FTUE Category Page opened correctly." >> Result.txt
+						echo -e "\x1B[01;92m Test 3: FTUE Category Page opened correctly.\x1B[0m" 
+						echo "Test 3: FTUE Category Page opened correctly.">> Result.txt  
+						say "Test 3 Passed!"
 					else
-						echo "Test 3: FAILED - FTUE Category Page did not open properly." >> Result.txt 
+						echo -e "\x1B[31m Test 3: FAILED - FTUE Category Page did not open properly.\x1B[0m" 
+						echo "Test 3: FAILED - FTUE Category Page did not open properly.">> Result.txt 
+						say "Test 3 Failed!"
 			fi
 
 adb shell input tap 500 530 
@@ -60,13 +68,17 @@ sleep 6
 		convert ActualFtueBoard.bmp -crop 1080x1860+0+75 $img "ActualFtueBoard.bmp";
 		mv ActualFtueBoard.bmp ImageTests/ActualPics
 
-			#Comparing Actual Screenshot to Stored FTUE_First_Screen Picture
+			#Comparing Actual Screenshot to Stored FTUE_Game_Board Picture
 
 			if compare -metric MAE /Users/shashmani/Desktop/WTPScript/ImageTests/ActualPics/ActualFtueBoard.bmp /Users/shashmani/Desktop/WTPScript/ImageTests/TestImages/FtueBoardScreen.bmp null; 
 				then
-						echo "Test 4: FTUE spinner works properly and FTUE game board displays correctly." >> Result.txt
+						echo -e "\x1B[01;92m Test 4: FTUE spinner works properly and FTUE game board displays correctly.\x1B[0m" 
+						echo "Test 4: FTUE spinner works properly and FTUE game board displays correctly.">> Result.txt  
+						say "Test 4 Passed!"
 					else
+						echo -e "\x1B[31m Test 4: FAILED - FTUE spinner did not work properly.\x1B[0m" 
 						echo "Test 4: FAILED - FTUE spinner did not work properly." >> Result.txt 
+						say "Test 4 Failed!"
 			fi
 
 
@@ -81,7 +93,7 @@ adb shell input tap 380 1330
 sleep 1
 adb shell input tap 500 530 
 sleep 1
-adb shell input swipe 255 1670 845 1600
+adb shell input swipe 255 1670 950 1670
 sleep 1
 adb shell input tap 690 1370
 sleep 8

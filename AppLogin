@@ -9,13 +9,17 @@
 		convert ActualLogin.bmp -crop 1080x1860+0+75 $img "ActualLogin.bmp";
 		mv ActualLogin.bmp ImageTests/ActualPics
 
-			#Comparing Actual Screenshot to Stored FTUE_First_Screen Picture
+			#Comparing Actual Screenshot to Stored Login Picture
 
 			if compare -metric MAE /Users/shashmani/Desktop/WTPScript/ImageTests/ActualPics/ActualLogin.bmp /Users/shashmani/Desktop/WTPScript/ImageTests/TestImages/LoginPage.bmp null; 
 				then
-						echo "Test 5: Log-in Page Opens Correctly." >> Result.txt
+						echo -e "\x1B[01;92m Test 5: Log-in Page Opens Correctly.\x1B[0m" 
+						echo "Test 5: Log-in Page Opens Correctly." >> Result.txt  
+						say "Test 5 Passed!"
 					else
-						echo "Test 5: FAILED - Log-in Page did not open properly." >> Result.txt 
+						echo  -e "\x1B[31m Test 5: FAILED - Log-in Page did not open properly. \x1B[0m"  
+						echo "Test 5: FAILED - Log-in Page did not open properly."  >> Result.txt
+						say "Test 5 Failed!"
 			fi
 
 

@@ -15,14 +15,17 @@
 
 			if compare -metric MAE /Users/shashmani/Desktop/WTPScript/ImageTests/ActualPics/ActualAppOpen.bmp /Users/shashmani/Desktop/WTPScript/ImageTests/TestImages/AppOpenPage.bmp null; 
 				then
+						echo -e "\x1B[01;92m Test 1: The app successfully downloaded, installed and opened correctly."  
+						echo "Automated Test Results for Build# $BuildNumber" >> Result.txt
 						echo "Test 1: The app successfully downloaded, installed and opened correctly." >> Result.txt
+						say "Test 1 Passed!"
 					else
+						echo -e "\x1B[31m Test 1: FAILED - The app did not open properly. \x1B[0m"  
 						echo "Test 1: FAILED - The app did not open properly." >> Result.txt 
+						say "Test 1 Failed!"
 			fi
 
 
 
 
 
-
-			

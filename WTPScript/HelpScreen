@@ -57,7 +57,7 @@ adb shell input tap 600 450
 				adb shell input keyevent 4
 
 
-# Opening Account Menu (HAVE TO WORK ON THIS....)
+# Opening Account Menu 
 
 adb shell input tap 600 650
 sleep 1

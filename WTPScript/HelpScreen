@@ -6,23 +6,23 @@ sleep 3
 adb shell input swipe 200 940 985 940 
 
 
-		# Checking if Settings Menu Opens Properly (screenshot without coins and banner) 
+		# Checking if Settings Menu Opens Properly (screenshot without banner) 
 				sleep 1
 				adb shell screencap -p | perl -pe 's/\x0D\x0A/\x0A/g' > ActualSettingsPage.bmp
-				convert ActualSettingsPage.bmp -crop 1080x1560+0+75 $img "ActualSettingsPage.bmp";
+				convert ActualSettingsPage.bmp -crop 1080x1695+0+75 $img "ActualSettingsPage.bmp";
 				mv ActualSettingsPage.bmp ImageTests/ActualPics
 
 					#Comparing Actual Screenshot to Stored Settings page Picture
 
-					if compare -metric MAE /Users/shashmani/Desktop/WTPScript/ImageTests/ActualPics/ActualSettingsPage.bmp /Users/shashmani/Desktop/WTPScript/ImageTests/TestImages/SettingsPage.bmp null; 
+					if compare -metric MAE /Users/shashmani/Desktop/Script/WTPScript/ImageTests/ActualPics/ActualSettingsPage.bmp /Users/shashmani/Desktop/Script/WTPScript/ImageTests/TestImages/SettingsPage.bmp null; 
 						then
-								echo -e "\x1B[01;92m Test 6: Settings Page Opens Correctly.\x1B[0m" 
-								echo "Test 6: Settings Page Opens Correctly."  >> Result.txt
-								say "Test 6 Passed!"
+								echo -e "\x1B[01;92m Test 7: Settings Page Opens Correctly.\x1B[0m" 
+								echo "Test 7: Settings Page Opens Correctly."  >> Result.txt
+								say "Test 7 Passed!"
 							else
-								echo -e "\x1B[31m Test 6: FAILED - Settings Page did not open properly. \x1B[0m"  
-								echo "Test 6: FAILED - Settings Page did not open properly." >> Result.txt 
-								say "Test 6 Failed!"
+								echo -e "\x1B[31m Test 7: FAILED - Settings Page did not open properly. \x1B[0m"  
+								echo "Test 7: FAILED - Settings Page did not open properly." >> Result.txt 
+								say "Test 7 Failed!"
 					fi
 
 
@@ -32,60 +32,67 @@ adb shell input swipe 200 940 985 940
 adb shell input tap 600 450 
 
 
-		# Checking if Options Menu Opens Properly (screenshot without coins and banner - NOTE: This will only work as long as the volume is MAX) 
+		# Checking if Options Menu Opens Properly (screenshot without banner - NOTE: This will only work as long as the volume is MAX) 
 				sleep 1
 				adb shell screencap -p | perl -pe 's/\x0D\x0A/\x0A/g' > ActualOptionsPage.bmp
-				convert ActualOptionsPage.bmp -crop 1080x1560+0+75 $img "ActualOptionsPage.bmp";
+				convert ActualOptionsPage.bmp -crop 1080x1695+0+75 $img "ActualOptionsPage.bmp";
 				mv ActualOptionsPage.bmp ImageTests/ActualPics
 
 					#Comparing Actual Screenshot to Stored Options Screen Picture
 
-					if compare -metric MAE /Users/shashmani/Desktop/WTPScript/ImageTests/ActualPics/ActualOptionsPage.bmp /Users/shashmani/Desktop/WTPScript/ImageTests/TestImages/OptionsPage.bmp null; 
+					if compare -metric MAE /Users/shashmani/Desktop/Script/WTPScript/ImageTests/ActualPics/ActualOptionsPage.bmp /Users/shashmani/Desktop/Script/WTPScript/ImageTests/TestImages/OptionsPage.bmp null; 
 						then
-								echo -e "\x1B[01;92m Test 7: Options Page Opens Correctly.\x1B[0m"  
-								echo "Test 7: Options Page Opens Correctly." >> Result.txt
-								say "Test 7 Passed!"
-							else
-								echo -e "\x1B[31m Test 7: FAILED - Options Page Page did not open properly. \x1B[0m"  
-								echo "Test 7: FAILED - Options Page Page did not open properly." >> Result.txt 
-								say "Test 7 Failed!"
-					fi
-
-
-
-				# Going back to settings menu 
-				adb shell input keyevent 4
-
-
-# Opening Account Menu 
-
-adb shell input tap 600 650
-sleep 1
-
-
-		# Checking if Account Menu Opens Properly (screenshot without coins and banner) 
-				sleep 1
-				adb shell screencap -p | perl -pe 's/\x0D\x0A/\x0A/g' > ActualAccountPage.bmp
-				convert ActualAccountPage.bmp -crop 1080x1560+0+75 $img "ActualAccountPage.bmp";
-				mv ActualAccountPage.bmp ImageTests/ActualPics
-
-					#Comparing Actual Screenshot to Stored Account Settings Page Picture
-
-					if compare -metric MAE /Users/shashmani/Desktop/WTPScript/ImageTests/ActualPics/ActualAccountPage.bmp /Users/shashmani/Desktop/WTPScript/ImageTests/TestImages/AccountPage.bmp null; 
-						then
-								echo -e "\x1B[01;92m Test 8: Account Page Opens Correctly.\x1B[0m"
-								echo "Test 8: Account Page Opens Correctly." >> Result.txt
+								echo -e "\x1B[01;92m Test 8: Options Page Opens Correctly.\x1B[0m"  
+								echo "Test 8: Options Page Opens Correctly." >> Result.txt
 								say "Test 8 Passed!"
 							else
-								echo -e "\x1B[31m Test 8: FAILED - Account Page did not open properly. \x1B[0m"
-								echo "Test 8: FAILED - Account Page did not open properly." >> Result.txt 
+								echo -e "\x1B[31m Test 8: FAILED - Options Page Page did not open properly. \x1B[0m"  
+								echo "Test 8: FAILED - Options Page Page did not open properly." >> Result.txt 
 								say "Test 8 Failed!"
 					fi
 
 
+
 				# Going back to settings menu 
 				adb shell input keyevent 4
 
+
+# Opening Account Menu and Changing Password 
+
+adb shell input tap 600 650
+sleep 1
+adb shell input tap 670 950
+sleep 0.5
+adb shell input text zynga12345
+sleep 0.5
+adb shell input tap 975 1830
+sleep 0.5
+adb shell input text zynga12345
+sleep 0.5
+adb shell input tap 975 1830
+sleep 0.5
+adb shell input tap 600 1150
+sleep 1
+
+
+		# Checking if Account Menu Opens and Changes can be saved Properly (screenshot without banner) 
+				sleep 1
+				adb shell screencap -p | perl -pe 's/\x0D\x0A/\x0A/g' > AccountChanges.bmp
+				convert AccountChanges.bmp -crop 1080x1695+0+75 $img "AccountChanges.bmp";
+				mv AccountChanges.bmp ImageTests/ActualPics				
+
+				#Comparing Actual Screenshot to Stored Settings Page Picture
+
+					if compare -metric MAE /Users/shashmani/Desktop/Script/WTPScript/ImageTests/ActualPics/AccountChanges.bmp /Users/shashmani/Desktop/Script/WTPScript/ImageTests/TestImages/SettingsPage.bmp null; 
+						then
+								echo -e "\x1B[01;92m Test 9: Account Page Opens and Changes can be made Correctly.\x1B[0m"
+								echo "Test 9: Account Page Opens and Changes can be made Correctly." >> Result.txt
+								say "Test 9 Passed!"
+							else
+								echo -e "\x1B[31m Test 9: FAILED - Account Page did not open or Changes were not made properly. \x1B[0m"
+								echo "Test 9: FAILED - Account Page did not Open or Changes were not made properly." >> Result.txt 
+								say "Test 9 Failed!"
+					fi
 
 
 # Opening Help Menu
@@ -94,7 +101,7 @@ adb shell input tap 600 820
 sleep 2
 
 
-		# Checking if Help Menu Opens Properly (screenshot without coins and banner) 
+		# Checking if Help Menu Opens Properly 
 				sleep 1
 				adb shell screencap -p | perl -pe 's/\x0D\x0A/\x0A/g' > ActualHelpPage.bmp
 				convert ActualHelpPage.bmp -crop 1080x1860+0+75 $img "ActualHelpPage.bmp";
@@ -102,15 +109,15 @@ sleep 2
 
 					#Comparing Actual Screenshot to Stored Account Settings Page Picture
 
-					if compare -metric MAE /Users/shashmani/Desktop/WTPScript/ImageTests/ActualPics/ActualHelpPage.bmp /Users/shashmani/Desktop/WTPScript/ImageTests/TestImages/HelpPage.bmp null; 
+					if compare -metric MAE /Users/shashmani/Desktop/Script/WTPScript/ImageTests/ActualPics/ActualHelpPage.bmp /Users/shashmani/Desktop/Script/WTPScript/ImageTests/TestImages/HelpPage.bmp null; 
 						then
-								echo -e "\x1B[01;92m Test 9: Help Menu Opens Correctly.\x1B[0m"
-								echo "Test 9: Help Menu Opens Correctly."  >> Result.txt
-								say "Test 9 Passed!"
+								echo -e "\x1B[01;92m Test 10: Help Menu Opens Correctly.\x1B[0m"
+								echo "Test 10: Help Menu Opens Correctly."  >> Result.txt
+								say "Test 10 Passed!"
 							else
-								echo -e "\x1B[31m Test 9: FAILED - Help Menu did not open properly. \x1B[0m" 
-								echo "Test 9: FAILED - Help Menu did not open properly." >> Result.txt 
-								say "Test 9 Failed!"
+								echo -e "\x1B[31m Test 10: FAILED - Help Menu did not open properly. \x1B[0m" 
+								echo "Test 10: FAILED - Help Menu did not open properly." >> Result.txt 
+								say "Test 10 Failed!"
 					fi
 
 				# Going back to settings menu 

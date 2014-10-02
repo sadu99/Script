@@ -15,7 +15,7 @@ sleep 1.5
 
 			# Comparing Actual Screenshot to Stored FTUE_First_Screen Picture
 
-			if compare -metric MAE /Users/shashmani/Desktop/WTPScript/ImageTests/ActualPics/ActualFtueFirst.bmp /Users/shashmani/Desktop/WTPScript/ImageTests/TestImages/FtueFirstPage.bmp null; 
+			if compare -metric MAE /Users/shashmani/Desktop/Script/WTPScript/ImageTests/ActualPics/ActualFtueFirst.bmp /Users/shashmani/Desktop/Script/WTPScript/ImageTests/TestImages/FtueFirstPage.bmp null; 
 				then
 						echo -e "\x1B[01;92m Test 2: FTUE opened correctly. \x1B[0m" 
 						echo "Test 2: FTUE opened correctly." >> Result.txt 
@@ -40,7 +40,7 @@ sleep 2
 
 			# Comparing Actual Screenshot to Stored FTUE_Category_Screen Picture
 
-			if compare -metric MAE /Users/shashmani/Desktop/WTPScript/ImageTests/ActualPics/ActualFtueCategory.bmp /Users/shashmani/Desktop/WTPScript/ImageTests/TestImages/FtueCategoryPage.bmp null; 
+			if compare -metric MAE /Users/shashmani/Desktop/Script/WTPScript/ImageTests/ActualPics/ActualFtueCategory.bmp /Users/shashmani/Desktop/Script/WTPScript/ImageTests/TestImages/FtueCategoryPage.bmp null; 
 				then
 						echo -e "\x1B[01;92m Test 3: FTUE Category Page opened correctly.\x1B[0m" 
 						echo "Test 3: FTUE Category Page opened correctly.">> Result.txt  
@@ -70,7 +70,7 @@ sleep 6
 
 			#Comparing Actual Screenshot to Stored FTUE_Game_Board Picture
 
-			if compare -metric MAE /Users/shashmani/Desktop/WTPScript/ImageTests/ActualPics/ActualFtueBoard.bmp /Users/shashmani/Desktop/WTPScript/ImageTests/TestImages/FtueBoardScreen.bmp null; 
+			if compare -metric MAE /Users/shashmani/Desktop/Script/WTPScript/ImageTests/ActualPics/ActualFtueBoard.bmp /Users/shashmani/Desktop/Script/WTPScript/ImageTests/TestImages/FtueBoardScreen.bmp null; 
 				then
 						echo -e "\x1B[01;92m Test 4: FTUE spinner works properly and FTUE game board displays correctly.\x1B[0m" 
 						echo "Test 4: FTUE spinner works properly and FTUE game board displays correctly.">> Result.txt  

@@ -11,7 +11,7 @@
 
 			#Comparing Actual Screenshot to Stored Login Picture
 
-			if compare -metric MAE /Users/shashmani/Desktop/WTPScript/ImageTests/ActualPics/ActualLogin.bmp /Users/shashmani/Desktop/WTPScript/ImageTests/TestImages/LoginPage.bmp null; 
+			if compare -metric MAE /Users/shashmani/Desktop/Script/WTPScript/ImageTests/ActualPics/ActualLogin.bmp /Users/shashmani/Desktop/Script/WTPScript/ImageTests/TestImages/LoginPage.bmp null; 
 				then
 						echo -e "\x1B[01;92m Test 5: Log-in Page Opens Correctly.\x1B[0m" 
 						echo "Test 5: Log-in Page Opens Correctly." >> Result.txt  
@@ -24,7 +24,7 @@
 
 
 
-# By Email
+# By Email (Existing Account)
 sleep 1
 adb shell input tap 500 1200
 sleep 1
@@ -36,3 +36,88 @@ adb shell input text Pass@999
 sleep 2
 adb shell input tap 765 580 
 sleep 10 
+
+
+# Installing New Game Version, Opening app and Skipping FTUE   
+
+		./NewVersion
+		sleep 18
+
+		# Open app
+
+		 adb shell am start -n com.zynga.gswf/.ui.launch.GameshowMainActivity 	
+		 sleep 2
+		 adb shell input tap 285 1780
+
+				 #Checking if FTUE can be skipped Properly
+
+				sleep 1
+				adb shell screencap -p | perl -pe 's/\x0D\x0A/\x0A/g' > ActualFtueSkip.bmp
+				convert ActualFtueSkip.bmp -crop 1080x1860+0+75 $img "ActualFtueSkip.bmp";
+				mv ActualFtueSkip.bmp ImageTests/ActualPics
+
+					#Comparing Actual Screenshot to Stored Login Picture
+
+					if compare -metric MAE /Users/shashmani/Desktop/Script/WTPScript/ImageTests/ActualPics/ActualFtueSkip.bmp /Users/shashmani/Desktop/Script/WTPScript/ImageTests/TestImages/FtueSkip.bmp null; 
+						then
+								echo -e "\x1B[01;92m Test 6: User can skip FTUE properly.\x1B[0m" 
+								echo "Test 6: User can skip FTUE properly." >> Result.txt  
+								say "Test 6 Passed!"
+							else
+								echo  -e "\x1B[31m Test 6: FAILED - FTUE cannot be skipped properly. \x1B[0m"  
+								echo "Test 6: FAILED - FTUE cannot be skipped properly."  >> Result.txt
+								say "Test 6 Failed!"
+					fi
+
+
+
+# By Email (New Account)
+
+# Creating a new email each time: "shtest100'x'@zto.ca" where x will be incremented each time 
+
+     	x=( $(<NewAccount.txt) )
+     	
+     	x=$((x+1))
+
+		sleep 1
+		adb shell input tap 500 1200
+		sleep 1
+		adb shell input text shtest100$x@zto.ca
+		sleep 1
+		adb shell input tap 845 565
+		sleep 2
+		adb shell input text shtest100$x
+		sleep 0.5
+		adb shell input tap 565 475
+		sleep 0.5
+		adb shell input text zynga123
+		sleep 2
+		adb shell input tap 780 690 
+		sleep 10 
+
+		> NewAccount.txt
+
+		echo $x >> NewAccount.txt
+
+
+                #Checking if New User Account can be created Properly
+
+				sleep 1
+				adb shell screencap -p | perl -pe 's/\x0D\x0A/\x0A/g' > ActualNewHome.bmp
+				convert ActualNewHome.bmp -crop 1080x1695+0+75 $img "ActualNewHome.bmp";
+				mv ActualNewHome.bmp ImageTests/ActualPics
+
+					#Comparing Actual Screenshot to Stored New User Account Home Page Picture
+
+					if compare -metric MAE /Users/shashmani/Desktop/Script/WTPScript/ImageTests/ActualPics/ActualNewHome.bmp /Users/shashmani/Desktop/Script/WTPScript/ImageTests/TestImages/NewHomePage.bmp null; 
+						then
+								echo -e "\x1B[01;92m Test 7: New User Account can be created properly.\x1B[0m" 
+								echo "Test 7: New User Account can be created properly." >> Result.txt  
+								say "Test 7 Passed!"
+							else
+								echo  -e "\x1B[31m Test 7: FAILED - New User Account cannot be created properly. \x1B[0m"  
+								echo "Test 7: FAILED - New User Account cannot be created properly."  >> Result.txt
+								say "Test 7 Failed!"
+					fi
+
+

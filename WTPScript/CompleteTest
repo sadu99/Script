@@ -15,7 +15,6 @@ export BuildNumber
 
 	# Removing old files from previous test 
 		rm null
-		rm Result.txt
 		rm -rf ImageTests/ActualPics/*
 
 ./Unlock
@@ -30,7 +29,11 @@ export BuildNumber
 
 ./HelpScreen
 
+./Store
+
 ./NewGameScreen
+
+./NewGame
 
 ./EmailResults 
 

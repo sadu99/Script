@@ -17,12 +17,14 @@ sleep 1.5
 
 			if compare -metric MAE /Users/shashmani/Desktop/Script/WTPScript/ImageTests/ActualPics/ActualFtueFirst.bmp /Users/shashmani/Desktop/Script/WTPScript/ImageTests/TestImages/FtueFirstPage.bmp null; 
 				then
-						echo -e "\x1B[01;92m Test 2: FTUE opened correctly. \x1B[0m" 
-						echo "Test 2: FTUE opened correctly." >> Result.txt 
+						echo -e "\x1B[01;92m PASS - Test 2: FTUE opened correctly. \x1B[0m" 
+						echo "Test 2: PASS - FTUE opened correctly." >> ScriptResults/Result_Build#$BuildNumber.txt  
+						echo "" >> ScriptResults/Result_Build#$BuildNumber.txt 
 						say "Test 2 Passed!"
 					else
 						echo -e "\x1B[31m Test 2: FAILED - FTUE did not open properly. \x1B[0m" 
-						echo "Test 2: FAILED - FTUE did not open properly." >> Result.txt 
+						echo "Test 2: FAILED - FTUE did not open properly." >> ScriptResults/Result_Build#$BuildNumber.txt  
+						echo "" >> ScriptResults/Result_Build#$BuildNumber.txt 
 						say "Test 2 Failed!"
 			fi
 
@@ -42,12 +44,14 @@ sleep 2
 
 			if compare -metric MAE /Users/shashmani/Desktop/Script/WTPScript/ImageTests/ActualPics/ActualFtueCategory.bmp /Users/shashmani/Desktop/Script/WTPScript/ImageTests/TestImages/FtueCategoryPage.bmp null; 
 				then
-						echo -e "\x1B[01;92m Test 3: FTUE Category Page opened correctly.\x1B[0m" 
-						echo "Test 3: FTUE Category Page opened correctly.">> Result.txt  
+						echo -e "\x1B[01;92m PASS - Test 3: FTUE Category Page opened correctly.\x1B[0m" 
+						echo "Test 3: PASS - FTUE Category Page opened correctly.">> ScriptResults/Result_Build#$BuildNumber.txt  
+						echo "" >> ScriptResults/Result_Build#$BuildNumber.txt  
 						say "Test 3 Passed!"
 					else
 						echo -e "\x1B[31m Test 3: FAILED - FTUE Category Page did not open properly.\x1B[0m" 
-						echo "Test 3: FAILED - FTUE Category Page did not open properly.">> Result.txt 
+						echo "Test 3: FAILED - FTUE Category Page did not open properly.">> ScriptResults/Result_Build#$BuildNumber.txt  
+						echo "" >> ScriptResults/Result_Build#$BuildNumber.txt 
 						say "Test 3 Failed!"
 			fi
 
@@ -72,12 +76,14 @@ sleep 6
 
 			if compare -metric MAE /Users/shashmani/Desktop/Script/WTPScript/ImageTests/ActualPics/ActualFtueBoard.bmp /Users/shashmani/Desktop/Script/WTPScript/ImageTests/TestImages/FtueBoardScreen.bmp null; 
 				then
-						echo -e "\x1B[01;92m Test 4: FTUE spinner works properly and FTUE game board displays correctly.\x1B[0m" 
-						echo "Test 4: FTUE spinner works properly and FTUE game board displays correctly.">> Result.txt  
+						echo -e "\x1B[01;92m PASS - Test 4: FTUE spinner works properly and FTUE game board displays correctly.\x1B[0m" 
+						echo "Test 4: PASS - FTUE spinner works properly and FTUE game board displays correctly.">> ScriptResults/Result_Build#$BuildNumber.txt  
+						echo "" >> ScriptResults/Result_Build#$BuildNumber.txt  
 						say "Test 4 Passed!"
 					else
 						echo -e "\x1B[31m Test 4: FAILED - FTUE spinner did not work properly.\x1B[0m" 
-						echo "Test 4: FAILED - FTUE spinner did not work properly." >> Result.txt 
+						echo "Test 4: FAILED - FTUE spinner did not work properly." >> ScriptResults/Result_Build#$BuildNumber.txt  
+						echo "" >> ScriptResults/Result_Build#$BuildNumber.txt 
 						say "Test 4 Failed!"
 			fi
 

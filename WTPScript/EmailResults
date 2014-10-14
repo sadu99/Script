@@ -5,15 +5,15 @@
 
 echo -e "\x1B[01;92m Test Completed! \x1B[0m" 
 
-echo -e "\x1B[01;92m Would you like a copy of the results emailed to the Zynga QA Email Account? (y/n) \x1B[0m" 
+echo -e "\x1B[01;92m Would you Like a Copy of the Results Uploaded to Google Drive and Emailed to the Zynga QA Email Account? (y/n) \x1B[0m" 
 
 read input
 
 if [ "$input" == 'y' ]; then
 
-	echo "" | mutt -a "Result.txt" -s "Automated Test Results for Build# $BuildNumber" -- qa.zynga123@gmail.com
-	echo -e "\x1B[01;92m Email Sent! Thank you.\x1B[0m"
-
+	echo "" | mutt -a "ScriptResults/Result_Build#$BuildNumber.txt" -s "Automated Test Results for Build# $BuildNumber" -- qa.zynga123@gmail.com
+	google docs upload ScriptResults/Result_Build#$BuildNumber.txt
+	echo -e "\x1B[01;92m Results Uploaded to Google Drive and Email Sent! Thank you.\x1B[0m"
 else
 
 	echo -e "\x1B[01;92m Thank you for using the system.\x1B[0m"

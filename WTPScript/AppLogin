@@ -13,12 +13,14 @@
 
 			if compare -metric MAE /Users/shashmani/Desktop/Script/WTPScript/ImageTests/ActualPics/ActualLogin.bmp /Users/shashmani/Desktop/Script/WTPScript/ImageTests/TestImages/LoginPage.bmp null; 
 				then
-						echo -e "\x1B[01;92m Test 5: Log-in Page Opens Correctly.\x1B[0m" 
-						echo "Test 5: Log-in Page Opens Correctly." >> Result.txt  
+						echo -e "\x1B[01;92m PASS - Test 5: Log-in Page Opens Correctly.\x1B[0m" 
+						echo "Test 5: PASS - Log-in Page Opens Correctly." >> ScriptResults/Result_Build#$BuildNumber.txt  
+						echo "" >> ScriptResults/Result_Build#$BuildNumber.txt  
 						say "Test 5 Passed!"
 					else
 						echo  -e "\x1B[31m Test 5: FAILED - Log-in Page did not open properly. \x1B[0m"  
-						echo "Test 5: FAILED - Log-in Page did not open properly."  >> Result.txt
+						echo "Test 5: FAILED - Log-in Page did not open properly."  >> ScriptResults/Result_Build#$BuildNumber.txt  
+						echo "" >> ScriptResults/Result_Build#$BuildNumber.txt
 						say "Test 5 Failed!"
 			fi
 
@@ -41,7 +43,7 @@ sleep 10
 # Installing New Game Version, Opening app and Skipping FTUE   
 
 		./NewVersion
-		sleep 18
+		sleep 10
 
 		# Open app
 
@@ -60,12 +62,14 @@ sleep 10
 
 					if compare -metric MAE /Users/shashmani/Desktop/Script/WTPScript/ImageTests/ActualPics/ActualFtueSkip.bmp /Users/shashmani/Desktop/Script/WTPScript/ImageTests/TestImages/FtueSkip.bmp null; 
 						then
-								echo -e "\x1B[01;92m Test 6: User can skip FTUE properly.\x1B[0m" 
-								echo "Test 6: User can skip FTUE properly." >> Result.txt  
+								echo -e "\x1B[01;92m PASS - Test 6: Existing User can log-in and User can skip FTUE properly.\x1B[0m" 
+								echo "Test 6: PASS - User can skip FTUE properly." >> ScriptResults/Result_Build#$BuildNumber.txt  
+								echo "" >> ScriptResults/Result_Build#$BuildNumber.txt  
 								say "Test 6 Passed!"
 							else
 								echo  -e "\x1B[31m Test 6: FAILED - FTUE cannot be skipped properly. \x1B[0m"  
-								echo "Test 6: FAILED - FTUE cannot be skipped properly."  >> Result.txt
+								echo "Test 6: FAILED - FTUE cannot be skipped properly."  >> ScriptResults/Result_Build#$BuildNumber.txt  
+								echo "" >> ScriptResults/Result_Build#$BuildNumber.txt
 								say "Test 6 Failed!"
 					fi
 
@@ -111,12 +115,14 @@ sleep 10
 
 					if compare -metric MAE /Users/shashmani/Desktop/Script/WTPScript/ImageTests/ActualPics/ActualNewHome.bmp /Users/shashmani/Desktop/Script/WTPScript/ImageTests/TestImages/NewHomePage.bmp null; 
 						then
-								echo -e "\x1B[01;92m Test 7: New User Account can be created properly.\x1B[0m" 
-								echo "Test 7: New User Account can be created properly." >> Result.txt  
+								echo -e "\x1B[01;92m PASS - Test 7: New User Account can be created properly.\x1B[0m" 
+								echo "Test 7: PASS - New User Account can be created properly." >> ScriptResults/Result_Build#$BuildNumber.txt  
+								echo "" >> ScriptResults/Result_Build#$BuildNumber.txt  
 								say "Test 7 Passed!"
 							else
 								echo  -e "\x1B[31m Test 7: FAILED - New User Account cannot be created properly. \x1B[0m"  
-								echo "Test 7: FAILED - New User Account cannot be created properly."  >> Result.txt
+								echo "Test 7: FAILED - New User Account cannot be created properly."  >> ScriptResults/Result_Build#$BuildNumber.txt  
+								echo "" >> ScriptResults/Result_Build#$BuildNumber.txt
 								say "Test 7 Failed!"
 					fi
 

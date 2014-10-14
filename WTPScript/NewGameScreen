@@ -15,13 +15,15 @@ adb shell input tap 575 340
 
 					if compare -metric MAE /Users/shashmani/Desktop/Script/WTPScript/ImageTests/ActualPics/ActualNewGameScreen.bmp /Users/shashmani/Desktop/Script/WTPScript/ImageTests/TestImages/NewGameScreen.bmp null; 
 						then
-								echo -e "\x1B[01;92m Test 11: New Game Screen Opens Correctly. \x1B[0m" 
-								echo "Test 11: New Game Screen Opens Correctly." >> Result.txt
-								say "Test 11 Passed!"
+								echo -e "\x1B[01;92m PASS - Test 14: New Game Screen Opens Correctly. \x1B[0m" 
+								echo "Test 14: PASS - New Game Screen Opens Correctly." >> ScriptResults/Result_Build#$BuildNumber.txt  
+								echo "" >> ScriptResults/Result_Build#$BuildNumber.txt
+								say "Test 14 Passed!"
 							else
-								echo -e "\x1B[31m Test 11: FAILED - New Game Screen did not open properly. \x1B[0m"
-								echo "Test 11: FAILED - New Game Screen did not open properly." >> Result.txt 
-								say "Test 11 Failed!"
+								echo -e "\x1B[31m Test 14: FAILED - New Game Screen did not open properly. \x1B[0m"
+								echo "Test 14: FAILED - New Game Screen did not open properly." >> ScriptResults/Result_Build#$BuildNumber.txt  
+								echo "" >> ScriptResults/Result_Build#$BuildNumber.txt 
+								say "Test 14 Failed!"
 					fi
 
 

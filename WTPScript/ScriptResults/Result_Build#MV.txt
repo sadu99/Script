@@ -1,0 +1,35 @@
+Automated Test Results for Build# MV
+
+
+Test 1: PASS - The app successfully downloaded, installed and opened correctly.
+
+Test 2: PASS - FTUE opened correctly.
+
+Test 3: PASS - FTUE Category Page opened correctly.
+
+Test 4: PASS - FTUE spinner works properly and FTUE game board displays correctly.
+
+Test 5: PASS - Log-in Page Opens Correctly.
+
+Test 6: PASS - User can skip FTUE properly.
+
+Test 7: PASS - New User Account can be created properly.
+
+Test 8: PASS - Settings Page Opens Correctly.
+
+Test 9: PASS - Options Page Opens Correctly.
+
+Test 10: PASS - Account Page Opens and Changes can be Saved Correctly.
+
+Test 11: PASS - Help Menu Opens Correctly.
+
+Test 12: PASS - Store Opens Correctly.
+
+Test 13: PASS - Small Coin Package can be Purchased and Coins are Correctly Updated.
+
+Test 14: PASS - New Game Screen Opens Correctly.
+
+Test 15: PASS - New Game by Searching User-Name can be Created Correctly.
+
+Test 16: PASS - Game can End and Move can be Sent to Other User Correctly.
+

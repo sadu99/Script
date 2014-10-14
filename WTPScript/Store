@@ -1,0 +1,69 @@
+#!/bin/bash
+
+# Testing Store Purchases 
+
+	# Gmail Account: zwftoronto3@gmail.com 
+	# NOTE: For this to work, this account has to already be logged-in to in the device 
+
+
+# Opening Store 
+
+sleep 1.5
+adb shell input tap 905 1720
+
+
+			# Checking if Store Opens Properly  
+				sleep 1
+				adb shell screencap -p | perl -pe 's/\x0D\x0A/\x0A/g' > ActualStore.bmp
+				convert ActualStore.bmp -crop 1080x1670+0+100 $img "ActualStore.bmp";
+				mv ActualStore.bmp ImageTests/ActualPics
+
+					#Comparing Actual Screenshot to Stored New Game Screen Picture
+
+					if compare -metric MAE /Users/shashmani/Desktop/Script/WTPScript/ImageTests/ActualPics/ActualStore.bmp /Users/shashmani/Desktop/Script/WTPScript/ImageTests/TestImages/StorePage.bmp null; 
+						then
+								echo -e "\x1B[01;92m PASS - Test 12: Store Opens Correctly. \x1B[0m" 
+								echo "Test 12: PASS - Store Opens Correctly." >> ScriptResults/Result_Build#$BuildNumber.txt  
+								echo "" >> ScriptResults/Result_Build#$BuildNumber.txt
+								say "Test 12 Passed!"
+							else
+								echo -e "\x1B[31m Test 12: FAILED - Store did not open properly. \x1B[0m"
+								echo "Test 12: FAILED - Store did not open properly." >> ScriptResults/Result_Build#$BuildNumber.txt  
+								echo "" >> ScriptResults/Result_Build#$BuildNumber.txt
+								say "Test 12 Failed!"
+					fi
+
+
+# Making a Transaction (Small - 400 Coins)
+
+sleep 0.5
+adb shell input tap 865 465
+sleep 2.5
+adb shell input tap 830 1215
+sleep 6
+adb shell input tap 80 150
+
+
+
+			# Checking if Transaction Succeeds 
+				sleep 1
+				adb shell screencap -p | perl -pe 's/\x0D\x0A/\x0A/g' > ActualPurchase.bmp
+				convert ActualPurchase.bmp -crop 1080x125+0+1640 $img "ActualPurchase.bmp";
+				mv ActualPurchase.bmp ImageTests/ActualPics
+
+					#Comparing Actual Screenshot to Stored New Game Screen Picture
+
+					if compare -metric MAE /Users/shashmani/Desktop/Script/WTPScript/ImageTests/ActualPics/ActualPurchase.bmp /Users/shashmani/Desktop/Script/WTPScript/ImageTests/TestImages/StorePurchase.bmp null; 
+						then
+								echo -e "\x1B[01;92m PASS - Test 13: Small Coin Package can be Purchased and Coins are Correctly Updated. \x1B[0m" 
+								echo "Test 13: PASS - Small Coin Package can be Purchased and Coins are Correctly Updated." >> ScriptResults/Result_Build#$BuildNumber.txt  
+								echo "" >> ScriptResults/Result_Build#$BuildNumber.txt
+								say "Test 13 Passed!"
+							else
+								echo -e "\x1B[31m Test 13: FAILED - User is not able to Purchase Store Items as Expected. \x1B[0m"
+								echo "Test 13: FAILED - User is not able to Purchase Store Items as Expected." >> ScriptResults/Result_Build#$BuildNumber.txt  
+								echo "" >> ScriptResults/Result_Build#$BuildNumber.txt 
+								say "Test 13 Failed!"
+					fi
+
+					

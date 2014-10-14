@@ -1,0 +1,6 @@
+#!/bin/bash
+
+echo "hello" "ddfdsf" > sample.xls
+# echo "hellofsd" > sample.xls
+# echo "hellosfds" > sample.xls
+

@@ -1,0 +1,92 @@
+#!/bin/bash
+
+# Starting a new game
+
+sleep 0.5
+adb shell input tap 580 820
+sleep 0.5
+adb shell input text shtest7
+sleep 0.5
+adb shell input tap 990 1825
+sleep 0.5
+adb shell input tap 730 1120
+sleep 4
+
+		# Checking if New Game can be Created Properly
+
+		sleep 1
+		adb shell screencap -p | perl -pe 's/\x0D\x0A/\x0A/g' > ActualGameCategory.bmp
+		convert ActualGameCategory.bmp -crop 1080x1860+0+75 $img "ActualGameCategory.bmp";
+		mv ActualGameCategory.bmp ImageTests/ActualPics
+
+			#Comparing Actual Screenshot to Stored Login Picture
+
+			if compare -metric MAE /Users/shashmani/Desktop/Script/WTPScript/ImageTests/ActualPics/ActualGameCategory.bmp /Users/shashmani/Desktop/Script/WTPScript/ImageTests/TestImages/GameCategoryPage.bmp null; 
+				then
+						echo -e "\x1B[01;92m PASS - Test 15: New Game by Searching User-Name can be Created Correctly.\x1B[0m" 
+						echo "Test 15: PASS - New Game by Searching User-Name can be Created Correctly." >> ScriptResults/Result_Build#$BuildNumber.txt  
+						echo "" >> ScriptResults/Result_Build#$BuildNumber.txt  
+						say "Test 15 Passed!"
+					else
+						echo  -e "\x1B[31m Test 15: FAILED - New Game by Searching User-Name cannot be Created Correctly.\x1B[0m"  
+						echo "Test 15: FAILED - New Game by Searching User-Name cannot be Created Correctly."  >> ScriptResults/Result_Build#$BuildNumber.txt  
+						echo "" >> ScriptResults/Result_Build#$BuildNumber.txt
+						say "Test 15 Failed!"
+			fi
+
+
+
+# Playing a 80's Category Game 
+
+
+sleep 7.5
+adb shell input tap 500 500
+sleep 1 
+adb shell input tap 540 1300
+sleep 0.5
+adb shell input swipe 560 660 560 1600
+sleep 7.5
+adb shell input tap 145 1190
+sleep 4 
+adb shell input tap 540 1300
+sleep 0.5
+adb shell input swipe 560 660 560 1600
+sleep 7.5
+adb shell input tap 270 1200
+sleep 4
+adb shell input tap 540 1300
+sleep 0.5
+adb shell input swipe 560 660 560 1600
+sleep 7.5
+adb shell input tap 400 1200 
+sleep 4
+adb shell input tap 540 1300
+sleep 4
+adb shell input keyevent 4
+sleep 4 
+adb shell input tap 545 1825
+sleep 2
+adb shell input swipe 200 800 850 800
+
+
+		# Checking if Game Ends and Move Sends Properly
+
+		sleep 1
+		adb shell screencap -p | perl -pe 's/\x0D\x0A/\x0A/g' > ActualSendMove.bmp
+		convert ActualSendMove.bmp -crop 1080x1565+0+75 $img "ActualSendMove.bmp";
+		mv ActualSendMove.bmp ImageTests/ActualPics
+
+			#Comparing Actual Screenshot to Stored Login Picture
+
+			if compare -metric MAE /Users/shashmani/Desktop/Script/WTPScript/ImageTests/ActualPics/ActualSendMove.bmp /Users/shashmani/Desktop/Script/WTPScript/ImageTests/TestImages/SendMovePage.bmp null; 
+				then
+						echo -e "\x1B[01;92m PASS - Test 16: Game can End and Move can be Sent to Other User Correctly.\x1B[0m" 
+						echo "Test 16: PASS - Game can End and Move can be Sent to Other User Correctly." >> ScriptResults/Result_Build#$BuildNumber.txt  
+						echo "" >> ScriptResults/Result_Build#$BuildNumber.txt  
+						say "Test 16 Passed!"
+					else
+						echo  -e "\x1B[31m Test 16: FAILED - New Game does not End Correctly or Move does not Send to Other User.\x1B[0m"  
+						echo "Test 16: FAILED - New Game does not End Correctly or Move does not Send to Other User."  >> ScriptResults/Result_Build#$BuildNumber.txt  
+						echo "" >> ScriptResults/Result_Build#$BuildNumber.txt
+						say "Test 16 Failed!"
+			fi

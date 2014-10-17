@@ -8,14 +8,14 @@
 
 # Opening Store 
 
-sleep 1.5
+sleep 2.5
 adb shell input tap 905 1720
 
 
 			# Checking if Store Opens Properly  
-				sleep 1
+				sleep 2
 				adb shell screencap -p | perl -pe 's/\x0D\x0A/\x0A/g' > ActualStore.bmp
-				convert ActualStore.bmp -crop 1080x1670+0+100 $img "ActualStore.bmp";
+				convert ActualStore.bmp -crop 1080x1415+0+355 $img "ActualStore.bmp";
 				mv ActualStore.bmp ImageTests/ActualPics
 
 					#Comparing Actual Screenshot to Stored New Game Screen Picture
@@ -36,9 +36,9 @@ adb shell input tap 905 1720
 
 # Making a Transaction (Small - 400 Coins)
 
-sleep 0.5
+sleep 1.5
 adb shell input tap 865 465
-sleep 2.5
+sleep 3
 adb shell input tap 830 1215
 sleep 6
 adb shell input tap 80 150

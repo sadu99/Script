@@ -1,6 +1,29 @@
 #!/bin/bash
 
-echo "hello" "ddfdsf" > sample.xls
-# echo "hellofsd" > sample.xls
-# echo "hellosfds" > sample.xls
-
+sleep 8
+adb shell input tap 500 500
+sleep 1.5 
+adb shell input tap 540 1300
+sleep 1
+adb shell input swipe 560 660 560 1600
+sleep 7.5
+adb shell input tap 145 1190
+sleep 5 
+adb shell input tap 540 1300
+sleep 1
+adb shell input swipe 560 660 560 1600
+sleep 7.5
+adb shell input tap 270 1200
+sleep 5
+adb shell input tap 540 1300
+sleep 1
+adb shell input swipe 560 660 560 1600
+sleep 7.5
+adb shell input tap 400 1200 
+sleep 5
+adb shell input tap 540 1300
+sleep 8
+adb shell input keyevent 4
+sleep 4
+adb shell input tap 540 1300
+sleep 4 

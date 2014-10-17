@@ -48,7 +48,7 @@ sleep 10
 		# Open app
 
 		 adb shell am start -n com.zynga.gswf/.ui.launch.GameshowMainActivity 	
-		 sleep 2
+		 sleep 3.5
 		 adb shell input tap 285 1780
 
 				 #Checking if FTUE can be skipped Properly
@@ -83,7 +83,7 @@ sleep 10
      	
      	x=$((x+1))
 
-		sleep 1
+     	sleep 1
 		adb shell input tap 500 1200
 		sleep 1
 		adb shell input text shtest100$x@zto.ca

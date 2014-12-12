@@ -8,7 +8,7 @@
 
 # Opening Store 
 
-sleep 2.5
+sleep 4
 adb shell input tap 905 1720
 
 

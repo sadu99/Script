@@ -65,7 +65,7 @@ sleep 5
 adb shell input tap 540 1300
 sleep 8
 adb shell input keyevent 4
-sleep 5
+sleep 7
 adb shell input tap 540 1850
 sleep 4 
 

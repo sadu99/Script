@@ -106,7 +106,7 @@ sleep 10
 
                 #Checking if New User Account can be created Properly
 
-				sleep 1
+				sleep 3
 				adb shell screencap -p | perl -pe 's/\x0D\x0A/\x0A/g' > ActualNewHome.bmp
 				convert ActualNewHome.bmp -crop 1080x1695+0+75 $img "ActualNewHome.bmp";
 				mv ActualNewHome.bmp ImageTests/ActualPics

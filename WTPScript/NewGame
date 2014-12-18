@@ -17,7 +17,7 @@ sleep 4
 
 		# Checking if New Game can be Created Properly
 
-		sleep 2.5
+		sleep 4
 		adb shell screencap -p | perl -pe 's/\x0D\x0A/\x0A/g' > ActualGameCategory.bmp
 		convert ActualGameCategory.bmp -crop 1080x1415+0+355 $img "ActualGameCategory.bmp";
 		mv ActualGameCategory.bmp ImageTests/ActualPics

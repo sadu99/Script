@@ -36,11 +36,11 @@ adb shell input tap 905 1720
 
 # Making a Transaction (Small - 400 Coins)
 
-sleep 1.5
+sleep 4
 adb shell input tap 865 465
-sleep 3
+sleep 5
 adb shell input tap 830 1215
-sleep 6
+sleep 7
 adb shell input tap 80 150
 
 

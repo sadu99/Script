@@ -8,7 +8,7 @@ sleep 1.5
 
 	#Checking if FTUE Starts Properly
 
-		sleep 1
+		sleep 2
 		adb shell screencap -p | perl -pe 's/\x0D\x0A/\x0A/g' > ActualFtueFirst.bmp
 		convert ActualFtueFirst.bmp -crop 1080x1860+0+75 $img "ActualFtueFirst.bmp";
 		mv ActualFtueFirst.bmp ImageTests/ActualPics

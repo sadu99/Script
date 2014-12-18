@@ -108,7 +108,7 @@ sleep 3
 
 
 		# Checking if Help Menu Opens Properly 
-				sleep 1
+				sleep 2
 				adb shell screencap -p | perl -pe 's/\x0D\x0A/\x0A/g' > ActualHelpPage.bmp
 				convert ActualHelpPage.bmp -crop 1080x1860+0+75 $img "ActualHelpPage.bmp";
 				mv ActualHelpPage.bmp ImageTests/ActualPics
